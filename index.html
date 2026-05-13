@@ -350,7 +350,7 @@
       .video-grid { grid-template-columns: 1fr; }
       .video-item { border-right: none !important; padding: 20px 0; }
       .video-item video { height: 180px; }
-    .video-item iframe { height: 180px; width: 100%; border: none; }
+    .video-item iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; }
       .video-item h3 { font-size: 16px !important; }
       .video-item p { font-size: 11px !important; }
       footer { grid-template-columns: 1fr !important; padding: 28px 0 !important; gap: 20px; }
@@ -414,7 +414,7 @@
         <span class="item-num" contenteditable="false" style="outline: none;">01</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV1SCvre7EaX&page=1&autoplay=0"
-  style="width:100%;aspect-ratio:16/9;border:none;"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
   loading="lazy">
 </iframe>
@@ -482,7 +482,7 @@
         <span class="item-num" contenteditable="false" style="outline: none;">05</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV1J45g6iEQs&page=1&autoplay=0"
-  style="width:100%;aspect-ratio:16/9;border:none;"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
   loading="lazy">
 </iframe>
