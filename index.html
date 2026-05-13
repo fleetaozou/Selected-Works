@@ -336,26 +336,23 @@
 
     @media (max-width: 560px) {
       body { padding: 0 16px; }
-      .hero-photo { height: 260px; }
-      .hero-info { padding: 28px 0 32px; }
-      .hero-info h1 { font-size: 36px !important; }
-      .hero-info h2 { font-size: 13px !important; }
-      .hero-about, .hero-contact { font-size: 12px !important; }
-      .section-header { padding: 32px 0 20px; }
-      .section-header h2 { font-size: 22px !important; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { height: 220px; }
+      .hero-info { padding: 20px 0 28px; }
+      .hero-info h1 { font-size: 28px !important; line-height: 1.2 !important; }
+      .hero-info h1 em { font-size: 14px !important; white-space: nowrap; }
+      .hero-info h2 { font-size: 12px !important; }
+      .resume-block { margin-top: 0; }
+      .resume-item { padding: 10px 0; }
+      .section-header { padding: 28px 0 16px; }
+      .section-header h2 { font-size: 20px !important; }
       .section-header .count { font-size: 11px !important; }
-      .feature { padding: 28px 0; }
-      .feature h2 { font-size: 18px !important; }
-      .feature-desc { font-size: 12px !important; }
       .video-grid { grid-template-columns: 1fr; }
-      .video-item { border-right: none !important; padding: 24px 0; }
-      .video-item video { height: 200px; }
-      .video-item h3 { font-size: 17px !important; }
+      .video-item { border-right: none !important; padding: 20px 0; }
+      .video-item video { height: 180px; }
+      .video-item h3 { font-size: 16px !important; }
       .video-item p { font-size: 11px !important; }
-      .resume-section { padding: 32px 0; }
-      .resume-tags { gap: 8px; }
-      .resume-tag { font-size: 11px !important; padding: 5px 10px; }
-      footer { grid-template-columns: 1fr !important; padding: 32px 0 !important; gap: 24px; }
+      footer { grid-template-columns: 1fr !important; padding: 28px 0 !important; gap: 20px; }
       .footer-col { font-size: 11px !important; }
     }
 
@@ -371,8 +368,7 @@
     <div class="photo-hint">profile photo</div>
   </div>
   <div class="hero-info">
-    <div class="hero-issue" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;"><br></div>
-    <h1 id="heroName" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;"></h1><h1 id="heroName" style="background: rgba(200, 169, 110, 0.05); border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; outline: none;" contenteditable="false">邹 庆 韬<br><em style="color: rgb(136, 136, 136);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Zou Qingtao&nbsp;</em></h1>
+    <h1 id="heroName" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;"></h1><h1 id="heroName" style="background: rgba(200, 169, 110, 0.05); border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; outline: none;" contenteditable="false">邹 庆 韬<br><em style="color: rgb(136, 136, 136);">&nbsp; Zou Qingtao</em></h1>
 
     <div class="resume-block">
       <div class="resume-item">
