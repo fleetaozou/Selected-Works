@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FAFAF8;
+      --ink: #1a1a1a;
+      --muted: #888;
+      --accent: #C8A96E;
+      --line: rgba(0,0,0,.1);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 48px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      min-height: 520px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+      background: #e0dfd8;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter .4s;
+    }
+
+    .hero-photo:hover img {
+      filter: grayscale(0%);
+    }
+
+    .hero-photo .photo-hint {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,.4));
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+    }
+
+    .hero-info {
+      padding: 72px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-issue {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-info h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 6vw, 88px);
+      font-weight: 300;
+      line-height: .92;
+      letter-spacing: -2px;
+      margin-bottom: 32px;
+    }
+
+    .hero-info h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .resume-block {
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+      margin-bottom: 28px;
+    }
+
+    .resume-item {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 21px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .resume-label {
+      font-size: 17px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink);
+      width: 104px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .resume-value {
+      font-size: 17px;
+      color: var(--ink);
+    }
+
+    .resume-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 12px;
+    }
+
+    /* ── Section divider ── */
+    .section-header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: -1px;
+      text-align: center;
+    }
+
+    .section-header h2 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .section-header .count {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Video group ── */
+    .video-group {
+      margin-bottom: 0;
+    }
+
+    .group-label-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 40px 0 20px;
+    }
+
+    .group-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+    }
+
+    .group-count {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Group divider ── */
+    .group-divider {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 48px 0;
+    }
+
+    .group-divider-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-style: italic;
+      letter-spacing: 2px;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .group-divider-line {
+      height: 1px;
+      background: var(--line);
+      flex: 1;
+    }
+
+    /* ── Video grid ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .video-item {
+      background: var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-item:nth-child(3n) {
+      border-right: none;
+    }
+
+    .video-item .thumb {
+      position: relative;
+      padding-top: 56.25%;
+      background: #e8e8e4;
+      overflow: hidden;
+    }
+
+    .video-item video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-item .item-num {
+      position: absolute;
+      top: 16px; left: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(255,255,255,.75);
+      line-height: 1;
+      letter-spacing: -2px;
+      z-index: 2;
+    }
+
+    .video-item .item-info {
+      padding: 24px 28px 28px;
+    }
+
+    .video-item .item-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .video-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .video-item p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 56px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-col {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .footer-col strong {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-photo { height: 320px; }
+      .hero-info { padding: 40px 28px; }
+      .section-header { padding: 40px 28px 28px; }
+      .video-grid { grid-template-columns: 1fr 1fr; }
+      .video-item:nth-child(3n) { border-right: 1px solid var(--line); }
+      .video-item:nth-child(2n) { border-right: none; }
+      footer { grid-template-columns: 1fr; padding: 40px 28px; }
+    }
+
+    @media (max-width: 560px) {
+      .video-grid { grid-template-columns: 1fr; }
+      .video-item { border-right: none; }
+    }
+
+    /* ── Editable ── */
+    [contenteditable] { outline: none; cursor: text; }
+    [contenteditable]:hover { background: rgba(200,169,110,.05); }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO: Photo + Name + Resume ── -->
+<div class="hero">
+  <div class="hero-photo">
+    <img src="简历+材料/证件照.jpg" alt="Profile Photo" id="heroPhoto">
+    <div class="photo-hint">profile photo</div>
+  </div>
+  <div class="hero-info">
+    <div class="hero-issue" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;"><br></div>
+    <h1 id="heroName" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;"></h1><h1 id="heroName" style="background: rgba(200, 169, 110, 0.05); border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; outline: none;" contenteditable="true">邹 庆 韬<br><em style="color: rgb(136, 136, 136);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Zou Qingtao&nbsp;</em></h1>
+
+    <div class="resume-block">
+      <div class="resume-item">
+        <div class="resume-label">技能</div>
+        <div class="resume-value" id="heroRole" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">音乐制作、音效设计、音频集成<div>音频宿主：Cubase、Logic Pro、Reaper&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div><div>中间件：Wwise&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div>游戏引擎：Unity</div></div>
+      </div>
+      <div class="resume-item">
+        <div class="resume-label">背景</div>
+        <div class="resume-value" id="heroAbout" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">硕士&nbsp; &nbsp; &nbsp; &nbsp; 华南师范大学&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;作曲<div>学士&nbsp; &nbsp; &nbsp; &nbsp; 云南艺术学院&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;音乐表演（技能与应用）</div></div>
+      </div>
+      <div class="resume-item">
+        <div class="resume-label">邮箱</div>
+        <div class="resume-value" id="heroContact" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">fleetaozou@163.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Portfolio Section ── -->
+<div class="section-header">
+  <h2 contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">作品集&nbsp; &nbsp;Selected <em>Works</em></h2>
+  <span class="count" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">06 projects</span>
+</div>
+
+<!-- Group divider -->
+<div class="group-divider">
+  <span class="group-divider-label">音乐类</span>
+  <span class="group-divider-line"></span>
+</div>
+
+<!-- Group A -->
+<div class="video-group">
+  <div class="video-grid">
+
+    <div class="video-item">
+      <div class="thumb">
+        <span class="item-num" contenteditable="true" style="outline: none;">01</span>
+        <video controls="" playsinline="">
+          <source src="作品集文件/1、CG动画配乐作品.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="true" style="outline: none;">Project 01</div>
+        <h3 id="v1-title" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">二创CG动画配乐作品</h3>
+        </div>
+    </div>
+
+    <div class="video-item">
+      <div class="thumb">
+        <span class="item-num" contenteditable="true" style="outline: none;">02</span>
+        <video controls="" playsinline="">
+          <source src="作品集文件/2、宣传片配乐作品.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="true" style="outline: none;">Project 02</div>
+        <h3 id="v2-title" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">宣传片配乐作品</h3>
+        </div>
+    </div>
+
+    <div class="video-item">
+      <div class="thumb">
+        <span class="item-num" contenteditable="true" style="outline: none;">03</span>
+        <video controls="" playsinline="">
+          <source src="作品集文件/3、轻音乐作品.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="true" style="outline: none;">Project 03</div>
+        <h3 id="v3-title" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">轻音乐作品</h3>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Group divider -->
+<div class="group-divider">
+  <span class="group-divider-label">音效类</span>
+  <span class="group-divider-line"></span>
+</div>
+
+<!-- Group B -->
+<div class="video-group">
+  <div class="video-grid">
+
+    <div class="video-item">
+      <div class="thumb">
+        <span class="item-num" contenteditable="true" style="outline: none;">04</span>
+        <video controls="" playsinline="">
+          <source src="作品集文件/4、音效设计作品.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="true" style="outline: none;">Project 04</div>
+        <h3 id="v4-title" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">音效设计作品</h3>
+        </div>
+    </div>
+
+    <div class="video-item">
+      <div class="thumb">
+        <span class="item-num" contenteditable="true" style="outline: none;">05</span>
+        <video controls="" playsinline="">
+          <source src="作品集文件/5、Unity场景搭建与wwise集成.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="true" style="outline: none;">Project 05</div>
+        <h3 id="v5-title" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">Unity场景搭建与Wwise集成</h3>
+        </div>
+    </div>
+
+    <div class="video-item">
+      <div class="thumb">
+        <span class="item-num" contenteditable="true" style="outline: none;">06</span>
+        <video controls="" playsinline="">
+          <source src="作品集文件/6、Wwise202结课.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="true" style="outline: none;">Project 06</div>
+        <h3 id="v6-title" contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">Wwise 202 结课展示</h3>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer contenteditable="true" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">
+  <div class="footer-col" contenteditable="true" style="outline: none;">
+    <strong>About</strong>Composition and Game Audio.<br><br></div>
+  <div class="footer-col" contenteditable="true" style="outline: none;">
+    <strong>Contact</strong>
+    <span id="footerContact">Email: fleetaozou@163.com</span><br>WeChat：fleetaozou</div>
+  <div class="footer-col" contenteditable="true" style="outline: none;">
+    <strong>Portfolio</strong>
+    © 2026 All Rights Reserved
+  </div>
+</footer>
+
+<script>
+  // Enable inline editing — select all editable text elements
+  [
+    '.hero-issue',
+    '#heroName',
+    '#heroRole',
+    '#heroAbout',
+    '#heroContact',
+    '.resume-tag',
+    '.footer-col',
+    '.section-header h2',
+    '.section-header .count',
+    '.feature-label',
+    '.feature h2',
+    '.feature-desc',
+    '.feature .tag',
+    '#groupA-label',
+    '#groupB-label',
+    '#v1-title','#v1-desc',
+    '#v2-title','#v2-desc',
+    '#v3-title','#v3-desc',
+    '#v4-title','#v4-desc',
+    '#v5-title','#v5-desc',
+    '#v6-title','#v6-desc',
+    '.video-item h3',
+    '.video-item p',
+    '.video-item .tag',
+    '.video-item .item-label',
+    '.video-item .item-num',
+    'footer',
+  ].forEach(function(sel) {
+    document.querySelectorAll(sel).forEach(function(el) {
+      el.setAttribute('contenteditable', 'true');
+      el.style.outline = 'none';
+      el.addEventListener('focus', function() {
+        el.style.borderBottom = '1px dashed rgba(200,169,110,0.5)';
+      });
+      el.addEventListener('blur', function() {
+        el.style.borderBottom = 'none';
+      });
+    });
+  });
+
+</script>
+
+
+</body></html>
