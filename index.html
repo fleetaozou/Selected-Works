@@ -491,50 +491,7 @@
   </div>
 </footer>
 
-<script>
-  // Enable inline editing — select all editable text elements
-  [
-    '.hero-issue',
-    '#heroName',
-    '#heroRole',
-    '#heroAbout',
-    '#heroContact',
-    '.resume-tag',
-    '.footer-col',
-    '.section-header h2',
-    '.section-header .count',
-    '.feature-label',
-    '.feature h2',
-    '.feature-desc',
-    '.feature .tag',
-    '#groupA-label',
-    '#groupB-label',
-    '#v1-title','#v1-desc',
-    '#v2-title','#v2-desc',
-    '#v3-title','#v3-desc',
-    '#v4-title','#v4-desc',
-    '#v5-title','#v5-desc',
-    '#v6-title','#v6-desc',
-    '.video-item h3',
-    '.video-item p',
-    '.video-item .tag',
-    '.video-item .item-label',
-    '.video-item .item-num',
-    'footer',
-  ].forEach(function(sel) {
-    document.querySelectorAll(sel).forEach(function(el) {
-      el.setAttribute('contenteditable', 'true');
-      el.style.outline = 'none';
-      el.addEventListener('focus', function() {
-        el.style.borderBottom = '1px dashed rgba(200,169,110,0.5)';
-      });
-      el.addEventListener('blur', function() {
-        el.style.borderBottom = 'none';
-      });
-    });
-  });
 
-</script>
 
 
 </body></html>
