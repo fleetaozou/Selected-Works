@@ -419,11 +419,11 @@
     /* ── Collapsible More Info ── */
     .more-toggle {
       display: flex;
-      justify-content: center;
       align-items: center;
       gap: 10px;
-      padding: 32px 0 0;
+      padding: 28px 0 24px;
       cursor: pointer;
+      border-bottom: 1px solid var(--line);
       user-select: none;
     }
     .more-toggle:hover .toggle-label { color: var(--ink); }
@@ -433,6 +433,11 @@
       text-transform: uppercase;
       color: var(--muted);
       transition: color .3s;
+    }
+    .toggle-bar {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
     }
     .toggle-arrow {
       width: 16px;
@@ -517,9 +522,6 @@
       <div class="resume-item">
         <div class="resume-label">邮箱</div>
         <div class="resume-value" id="heroContact" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">fleetaozou@163.com</div>
-      <div class="more-toggle" id="moreToggle" onclick="toggleMore()">
-        <span class="toggle-label">点击查看更多信息</span>
-        <span class="toggle-arrow"></span>
       </div>
     </div>
   </div>
@@ -558,6 +560,12 @@
     </div>
   </div>
 </div>
+<div class="more-toggle" id="moreToggle" onclick="toggleMore()">
+  <span class="toggle-label">更多信息</span>
+  <span class="toggle-bar"></span>
+  <span class="toggle-arrow"></span>
+</div>
+
 <!-- ── Portfolio of fleetaozou ── -->
 <div class="section-header">
   <h2 contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">Selected <em>Works</em></h2>
