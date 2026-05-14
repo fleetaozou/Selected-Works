@@ -203,8 +203,8 @@
     /* ── Group divider ── */
     .group-divider {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 24px;
       padding: 48px 0;
     }
 
@@ -215,13 +215,10 @@
       letter-spacing: 2px;
       color: var(--accent);
       white-space: nowrap;
-      flex-shrink: 0;
     }
 
     .group-divider-line {
-      height: 1px;
-      background: var(--line);
-      flex: 1;
+      display: none;
     }
 
     /* ── Video grid ── */
