@@ -473,10 +473,17 @@
       font-weight: 400;
       letter-spacing: 1px;
       color: var(--ink);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       padding-bottom: 6px;
-      border-bottom: 1px solid var(--line);
       text-align: center;
+    }
+    .more-block-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: var(--line);
+      margin: 8px auto 0;
     }
     .more-list {
       list-style: none;
