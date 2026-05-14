@@ -415,6 +415,27 @@
       border-color: transparent transparent transparent #1a1a1a;
       margin-left: 4px;
     }
+
+    /* ── Hide Bilibili watermark & account info ── */
+    .video-item .bili-mask {
+      position: absolute;
+      z-index: 10;
+      pointer-events: none;
+    }
+    /* Bottom-right: logo + "未经授权禁止转载" text */
+    .video-item .bili-mask.br {
+      bottom: 0;
+      right: 0;
+      width: 120px;
+      height: 50px;
+    }
+    /* Top-right: account info strip */
+    .video-item .bili-mask.tr {
+      top: 0;
+      right: 0;
+      width: 160px;
+      height: 36px;
+    }
     /* ── Editable ── */
     </style>
 </head>
@@ -472,6 +493,7 @@
         <div class="play-btn" onclick="startPlay(this)">
           <div class="play-icon"></div>
         </div>
+<div class="bili-mask br"></div><div class="bili-mask tr"></div>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 01</div>
@@ -489,6 +511,7 @@
         <div class="play-btn" onclick="startPlay(this)">
           <div class="play-icon"></div>
         </div>
+<div class="bili-mask br"></div><div class="bili-mask tr"></div>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 02</div>
@@ -506,6 +529,7 @@
         <div class="play-btn" onclick="startPlay(this)">
           <div class="play-icon"></div>
         </div>
+<div class="bili-mask br"></div><div class="bili-mask tr"></div>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 03</div>
@@ -536,6 +560,7 @@
         <div class="play-btn" onclick="startPlay(this)">
           <div class="play-icon"></div>
         </div>
+<div class="bili-mask br"></div><div class="bili-mask tr"></div>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 04</div>
@@ -553,6 +578,7 @@
         <div class="play-btn" onclick="startPlay(this)">
           <div class="play-icon"></div>
         </div>
+<div class="bili-mask br"></div><div class="bili-mask tr"></div>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 05</div>
@@ -570,6 +596,7 @@
         <div class="play-btn" onclick="startPlay(this)">
           <div class="play-icon"></div>
         </div>
+<div class="bili-mask br"></div><div class="bili-mask tr"></div>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 06</div>
