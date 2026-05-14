@@ -362,59 +362,6 @@
       .hero-photo img { object-position: 50% 5% !important; }
     }
 
-
-    /* ── Play button overlay ── */
-    .video-item .thumb-wrap {
-      position: relative;
-      padding-top: 56.25%;
-      background: #1a1a1a;
-      overflow: hidden;
-    }
-    .video-item .thumb-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: none;
-    }
-    .video-item .play-btn {
-      position: absolute;
-      inset: 0;
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.35);
-      cursor: pointer;
-      transition: background .3s;
-    }
-    .video-item .play-btn:hover { background: rgba(0,0,0,0.5); }
-    .video-item .play-btn .play-icon {
-      width: 68px;
-      height: 68px;
-      background: rgba(255,255,255,0.92);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-      transition: transform .2s, background .2s;
-    }
-    .video-item .play-btn:hover .play-icon {
-      transform: scale(1.08);
-      background: #fff;
-    }
-    .video-item .play-btn .play-icon::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 13px 0 13px 22px;
-      border-color: transparent transparent transparent #1a1a1a;
-      margin-left: 4px;
-    }
     /* ── Editable ── */
     </style>
 </head>
@@ -432,16 +379,7 @@
     <div class="resume-block">
       <div class="resume-item">
         <div class="resume-label">技能</div>
-        <div class="resume-value" id="heroRole" contenteditable="false" style="outline: none;">
-  <div style="margin-bottom: 14px; font-size: 16px; color: #555;">音乐制作 · 音效设计 · 音频集成</div>
-  <div class="resume-tags">
-    <span class="tag">Cubase</span>
-    <span class="tag">Logic Pro</span>
-    <span class="tag">Reaper</span>
-    <span class="tag">Wwise</span>
-    <span class="tag">Unity</span>
-  </div>
-</div>
+        <div class="resume-value" id="heroRole" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">音乐制作、音效设计、音频集成<div>DAW：Cubase、Logic Pro、Reaper&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div><div>中间件：Wwise&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div>游戏引擎：Unity</div></div>
       </div>
       <div class="resume-item">
         <div class="resume-label">背景</div>
@@ -472,15 +410,14 @@
   <div class="video-grid">
 
     <div class="video-item">
-      <div class="thumb-wrap">
+      <div class="thumb">
         <span class="item-num" contenteditable="false" style="outline: none;">01</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV1SCvre7EaX&page=1&autoplay=0"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
+  loading="lazy">
+</iframe>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 01</div>
@@ -489,15 +426,14 @@
     </div>
 
     <div class="video-item">
-      <div class="thumb-wrap">
+      <div class="thumb">
         <span class="item-num" contenteditable="false" style="outline: none;">02</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV1k45263EvE&page=1&autoplay=0"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
+  loading="lazy">
+</iframe>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 02</div>
@@ -506,15 +442,14 @@
     </div>
 
     <div class="video-item">
-      <div class="thumb-wrap">
+      <div class="thumb">
         <span class="item-num" contenteditable="false" style="outline: none;">03</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV11H526yEFK&page=1&autoplay=0"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
+  loading="lazy">
+</iframe>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 03</div>
@@ -536,15 +471,14 @@
   <div class="video-grid">
 
     <div class="video-item">
-      <div class="thumb-wrap">
+      <div class="thumb">
         <span class="item-num" contenteditable="false" style="outline: none;">04</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV1Nn526jEdQ&page=1&autoplay=0"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
+  loading="lazy">
+</iframe>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 04</div>
@@ -553,15 +487,14 @@
     </div>
 
     <div class="video-item">
-      <div class="thumb-wrap">
+      <div class="thumb">
         <span class="item-num" contenteditable="false" style="outline: none;">05</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV1J45g6iEQs&page=1&autoplay=0"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
+  loading="lazy">
+</iframe>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 05</div>
@@ -570,15 +503,14 @@
     </div>
 
     <div class="video-item">
-      <div class="thumb-wrap">
+      <div class="thumb">
         <span class="item-num" contenteditable="false" style="outline: none;">06</span>
         <iframe
   src="https://player.bilibili.com/player.html?bvid=BV1xw5m67Eza&page=1&autoplay=0"
+  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;"
   allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
+  loading="lazy">
+</iframe>
       </div>
       <div class="item-info">
         <div class="item-label" contenteditable="false" style="outline: none;">Project 06</div>
@@ -605,15 +537,4 @@
 
 
 
-
-<script>
-function startPlay(btn) {
-  var wrap = btn.parentElement;
-  var iframe = wrap.querySelector('iframe');
-  var m = iframe.src.match(/bvid=([^&]+)/);
-  if (!m) return;
-  iframe.src = 'https://player.bilibili.com/player.html?bvid=' + m[1] + '&page=1&autoplay=1';
-  btn.style.display = 'none';
-}
-</script>
 </body></html>
