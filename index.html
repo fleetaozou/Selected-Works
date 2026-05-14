@@ -415,6 +415,87 @@
       border-color: transparent transparent transparent #1a1a1a;
       margin-left: 4px;
     }
+
+    /* ── Collapsible More Info ── */
+    .more-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 28px 0 24px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--line);
+      user-select: none;
+    }
+    .more-toggle:hover .toggle-label { color: var(--ink); }
+    .toggle-label {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .3s;
+    }
+    .toggle-bar {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .toggle-arrow {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s;
+    }
+    .toggle-arrow::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 7px solid var(--muted);
+    }
+    .more-section { display: none; }
+    .more-section.open { display: block; }
+    .more-section.open ~ .more-toggle .toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    .more-inner {
+      padding: 0 0 8px;
+    }
+    .more-block {
+      margin-bottom: 28px;
+    }
+    .more-block:last-child { margin-bottom: 0; }
+    .more-block-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--ink);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .more-list {
+      list-style: none;
+      padding: 0;
+    }
+    .more-list li {
+      font-size: 13px;
+      line-height: 1.75;
+      color: #555;
+      padding: 3px 0;
+    }
+    .more-list li::before {
+      content: '—';
+      color: var(--accent);
+      margin-right: 10px;
+      font-size: 11px;
+    }
+
     /* ── Editable ── */
     </style>
 </head>
@@ -444,6 +525,45 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- ── More Info (collapsed) ── -->
+<div class="more-section" id="moreSection">
+  <div class="more-inner">
+    <div class="more-block">
+      <div class="more-block-title">荣誉奖项</div>
+      <ul class="more-list">
+        <li>马勒国际音乐比赛 金奖</li>
+        <li>YMC美国亚特兰大国际青年作曲大赛荣誉 一等奖</li>
+        <li>春之曲国际音乐比赛 一等奖</li>
+        <li>粤港澳音乐科技设计大赛影视配乐专业组 优秀奖</li>
+        <li>粤港澳音乐科技设计大赛声音制作专业组 优秀奖</li>
+      </ul>
+    </div>
+    <div class="more-block">
+      <div class="more-block-title">实习实践</div>
+      <ul class="more-list">
+        <li>新东方教育科技集团（广州）专业课教师</li>
+        <li>哈尔滨勋菲尔德国际弦乐比赛 赛事统筹</li>
+        <li>华南当代创意音乐营 核心人员</li>
+        <li>华师乐集 核心人员</li>
+      </ul>
+    </div>
+    <div class="more-block">
+      <div class="more-block-title">艺术创作</div>
+      <ul class="more-list">
+        <li>室内乐作品《忆·湾海声韵》2023年于东莞玉兰大剧院成功首演</li>
+        <li>《鲸落》等原创多媒体系列作品受清华大学广州校友会邀请于和美艺术中心呈现</li>
+        <li>参与华南师范大学九十周年校庆校歌重编与校园歌曲《后勤人之歌》的音乐制作</li>
+        <li>其他商业音乐制作项目：西南六小校歌、深圳同思棒球应援歌曲</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="more-toggle" id="moreToggle" onclick="toggleMore()">
+  <span class="toggle-label">更多信息</span>
+  <span class="toggle-bar"></span>
+  <span class="toggle-arrow"></span>
 </div>
 
 <!-- ── Portfolio of fleetaozou ── -->
@@ -605,6 +725,13 @@ function startPlay(btn) {
   if (!m) return;
   iframe.src = 'https://player.bilibili.com/player.html?bvid=' + m[1] + '&page=1&autoplay=1';
   btn.style.display = 'none';
+}
+</script>
+
+<script>
+function toggleMore() {
+  var sec = document.getElementById('moreSection');
+  sec.classList.toggle('open');
 }
 </script>
 </body></html>
