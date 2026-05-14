@@ -418,6 +418,7 @@
 
     /* ── Collapsible More Info ── */
     .more-toggle {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -426,17 +427,25 @@
       cursor: pointer;
       user-select: none;
     }
+    .more-toggle::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--line);
+      z-index: 0;
+    }
     .more-toggle:hover .toggle-label { color: var(--ink); }
     .toggle-label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: 28px;
       font-weight: 300;
       letter-spacing: -1px;
       text-transform: uppercase;
       color: var(--muted);
       transition: color .3s;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 12px;
     }
     .toggle-arrow {
       width: 20px;
@@ -560,7 +569,7 @@
   </div>
 </div>
 <div class="more-toggle" id="moreToggle" onclick="toggleMore()">
-  <span class="toggle-label">点击查看更多信息</span>
+  <span class="toggle-label">更多信息</span>
   <span class="toggle-bar"></span>
   <span class="toggle-arrow"></span>
 </div>
