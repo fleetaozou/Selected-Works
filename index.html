@@ -104,8 +104,8 @@
     }
 
     .resume-item {
-      display: flex;
-      gap: 32px;
+      display: block;
+      text-align: center;
       margin-bottom: 21px;
       font-size: 17px;
       line-height: 1.6;
@@ -117,9 +117,8 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--ink);
-      width: 104px;
-      flex-shrink: 0;
       padding-top: 1px;
+      margin-bottom: 4px;
     }
 
     .resume-value {
@@ -354,8 +353,8 @@
       footer { grid-template-columns: 1fr !important; padding: 28px 0 !important; gap: 20px; }
       .footer-col { font-size: 11px !important; }
       /* Skill label: stack above content, no horizontal gap */
-      .resume-item { flex-direction: column !important; gap: 4px !important; }
-      .resume-label { width: auto !important; }
+      .resume-item { display: block !important; text-align: center !important; }
+      .resume-label { text-align: center !important; }
       /* Photo: show top (face) instead of center crop */
       .hero-photo img { object-position: 50% 5% !important; }
     }
