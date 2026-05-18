@@ -558,19 +558,24 @@
     .audio-info {
       flex: 1;
       min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .audio-track-name {
       display: block;
-      font-size: 13px;
+      font-size: 14px;
       color: var(--ink);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       font-family: 'Cormorant Garamond', serif;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      text-align: center;
     }
     .audio-progress-wrap {
       display: flex;
       align-items: center;
       gap: 8px;
+      width: 100%;
     }
     .audio-time {
       font-size: 10px;
@@ -614,16 +619,16 @@
       color: var(--ink);
     }
     .audio-list-icon {
-      width: 14px;
-      height: 10px;
+      width: 18px;
+      height: 14px;
       background: linear-gradient(transparent 20%, var(--muted) 20%, var(--muted) 40%, transparent 40%, transparent 60%, var(--muted) 60%, var(--muted) 80%, transparent 80%);
     }
     .audio-list-arrow {
       width: 0;
       height: 0;
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
-      border-top: 4px solid var(--muted);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--muted);
     }
     .audio-list-dropdown {
       position: absolute;
