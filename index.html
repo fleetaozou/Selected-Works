@@ -505,6 +505,161 @@
       font-size: 11px;
     }
 
+    /* ── Audio Player ── */
+    .audio-player-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #1a1a1a;
+    }
+    .audio-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 20px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    }
+    .audio-play-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .2s, transform .2s;
+    }
+    .audio-play-btn:hover {
+      background: #d4b87a;
+      transform: scale(1.05);
+    }
+    .audio-icon {
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    .audio-icon.play-icon {
+      border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent #1a1a1a;
+      margin-left: 3px;
+    }
+    .audio-icon.pause-icon {
+      border-width: 0 6px 0 6px;
+      border-style: solid;
+      border-color: transparent #1a1a1a transparent #1a1a1a;
+      width: 16px;
+      height: 16px;
+    }
+    .audio-center {
+      flex: 1;
+      min-width: 0;
+    }
+    .audio-track-name {
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 1px;
+    }
+    .audio-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .audio-time {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+    .audio-progress-bar {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+    .audio-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      width: 0%;
+      transition: width .1s;
+    }
+    .audio-list-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .audio-list-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: rgba(255,255,255,0.8);
+      font-size: 12px;
+      transition: border-color .2s;
+    }
+    .audio-list-btn:hover {
+      border-color: rgba(255,255,255,0.6);
+    }
+    .audio-list-icon {
+      width: 16px;
+      height: 12px;
+      background: linear-gradient(transparent 20%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 40%, transparent 40%, transparent 60%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,0.8) 80%, transparent 80%);
+    }
+    .audio-list-arrow {
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid rgba(255,255,255,0.6);
+    }
+    .audio-list-dropdown {
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      background: #2a2a2a;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      min-width: 160px;
+      display: none;
+      overflow: hidden;
+      margin-bottom: 8px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+    .audio-list-dropdown.open {
+      display: block;
+    }
+    .audio-list-item {
+      padding: 10px 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+    }
+    .audio-list-item:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .audio-list-item.active {
+      color: var(--accent);
+      background: rgba(200,169,110,0.15);
+    }
+
     /* ── Editable ── */
     </style>
 </head>
@@ -689,21 +844,42 @@
         </div>
     </div>
 
-    <div class="video-item">
-      <div class="thumb-wrap">
-        <span class="item-num" contenteditable="false" style="outline: none;">03</span>
-        <iframe
-  src="https://player.bilibili.com/player.html?bvid=BV11H526yEFK&page=1&autoplay=0"
-  allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
+    <div class="video-item" id="music-player-item">
+      <div class="audio-player-wrap">
+        <div class="audio-inner">
+          <!-- Left: Play/Pause -->
+          <button class="audio-play-btn" id="audioPlayBtn" onclick="toggleAudioPlay()">
+            <span class="audio-icon play-icon"></span>
+          </button>
+
+          <!-- Center: Track Info & Progress -->
+          <div class="audio-center">
+            <div class="audio-track-name" id="audioTrackName">电子音乐类</div>
+            <div class="audio-progress-wrap">
+              <span class="audio-time" id="audioCurrentTime">0:00</span>
+              <div class="audio-progress-bar" id="audioProgressBar" onclick="seekAudio(event)">
+                <div class="audio-progress-fill" id="audioProgressFill"></div>
+              </div>
+              <span class="audio-time" id="audioTotalTime">0:00</span>
+            </div>
+          </div>
+
+          <!-- Right: Track List -->
+          <div class="audio-list-wrap">
+            <button class="audio-list-btn" onclick="toggleAudioList()">
+              <span class="audio-list-icon"></span>
+              <span class="audio-list-arrow"></span>
+            </button>
+            <div class="audio-list-dropdown" id="audioListDropdown">
+              <div class="audio-list-item active" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">电子音乐类</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="item-info">
-        <div class="item-label" contenteditable="false" style="outline: none;">Project 03</div>
-        <h3 id="v3-title" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">轻音乐作品</h3>
-        </div>
+        <div class="item-label">Project 03</div>
+        <h3>轻音乐作品</h3>
+      </div>
     </div>
 
   </div>
@@ -736,5 +912,95 @@ function toggleMore() {
   var sec = document.getElementById('moreSection');
   sec.classList.toggle('open');
 }
+</script>
+
+<script>
+var currentAudio = null;
+var audioTracks = [
+  { src: 'audio/电子音乐类.mp3', name: '电子音乐类' }
+];
+
+function initAudioPlayer() {
+  currentAudio = new Audio();
+  currentAudio.src = audioTracks[0].src;
+  currentAudio.addEventListener('loadedmetadata', function() {
+    document.getElementById('audioTotalTime').textContent = formatTime(currentAudio.duration);
+  });
+  currentAudio.addEventListener('timeupdate', function() {
+    if (currentAudio.duration) {
+      var percent = (currentAudio.currentTime / currentAudio.duration) * 100;
+      document.getElementById('audioProgressFill').style.width = percent + '%';
+    }
+    document.getElementById('audioCurrentTime').textContent = formatTime(currentAudio.currentTime);
+  });
+  currentAudio.addEventListener('ended', function() {
+    setPlayIcon(false);
+  });
+}
+
+function formatTime(seconds) {
+  if (!seconds || isNaN(seconds)) return '0:00';
+  var mins = Math.floor(seconds / 60);
+  var secs = Math.floor(seconds % 60);
+  return mins + ':' + (secs < 10 ? '0' : '') + secs;
+}
+
+function toggleAudioPlay() {
+  if (!currentAudio) initAudioPlayer();
+  if (currentAudio.paused) {
+    currentAudio.play();
+    setPlayIcon(true);
+  } else {
+    currentAudio.pause();
+    setPlayIcon(false);
+  }
+}
+
+function setPlayIcon(playing) {
+  var icon = document.querySelector('#audioPlayBtn .audio-icon');
+  if (playing) {
+    icon.className = 'audio-icon pause-icon';
+  } else {
+    icon.className = 'audio-icon play-icon';
+  }
+}
+
+function seekAudio(e) {
+  if (!currentAudio || !currentAudio.duration) return;
+  var bar = document.getElementById('audioProgressBar');
+  var rect = bar.getBoundingClientRect();
+  var percent = (e.clientX - rect.left) / rect.width;
+  currentAudio.currentTime = percent * currentAudio.duration;
+}
+
+function toggleAudioList() {
+  document.getElementById('audioListDropdown').classList.toggle('open');
+}
+
+function selectAudioTrack(item) {
+  var src = item.getAttribute('data-src');
+  var name = item.textContent;
+  document.getElementById('audioTrackName').textContent = name;
+  document.querySelectorAll('.audio-list-item').forEach(function(i) { i.classList.remove('active'); });
+  item.classList.add('active');
+  if (currentAudio) {
+    currentAudio.src = src;
+    currentAudio.play();
+    setPlayIcon(true);
+  }
+  toggleAudioList();
+}
+
+// Init on load
+window.addEventListener('DOMContentLoaded', initAudioPlayer);
+
+// Close list when clicking outside
+document.addEventListener('click', function(e) {
+  var list = document.getElementById('audioListDropdown');
+  var btn = e.target.closest('.audio-list-btn');
+  if (list && !btn && list.classList.contains('open')) {
+    list.classList.remove('open');
+  }
+});
 </script>
 </body></html>
