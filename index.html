@@ -660,6 +660,45 @@
       background: rgba(200,169,110,0.15);
     }
 
+    /* ── MP3 Player Row ── */
+    .audio-player-row {
+      padding: 2px;
+      background: var(--line);
+    }
+    .audio-player-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 24px;
+      background: var(--bg);
+    }
+    .audio-player-bar .audio-play-btn {
+      width: 40px;
+      height: 40px;
+    }
+    .audio-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .audio-info .audio-track-name {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .audio-player-bar .audio-list-wrap {
+      flex-shrink: 0;
+    }
+    @media (max-width: 560px) {
+      .audio-player-bar {
+        padding: 12px 16px;
+        gap: 12px;
+      }
+      .audio-player-bar .audio-play-btn {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
     /* ── Editable ── */
     </style>
 </head>
@@ -731,49 +770,6 @@
 </div>
 
 <!-- ── Portfolio of fleetaozou ── -->
-
-<!-- Audio Player Row -->
-<div class="video-group">
-  <div class="video-grid">
-    <div class="video-item" id="music-player-item" style="grid-column: span 3;">
-      <div class="audio-player-wrap">
-        <div class="audio-inner">
-          <!-- Left: Play/Pause -->
-          <button class="audio-play-btn" id="audioPlayBtn" onclick="toggleAudioPlay()">
-            <span class="audio-icon play-icon"></span>
-          </button>
-
-          <!-- Center: Track Info & Progress -->
-          <div class="audio-center">
-            <div class="audio-track-name" id="audioTrackName">电子音乐类</div>
-            <div class="audio-progress-wrap">
-              <span class="audio-time" id="audioCurrentTime">0:00</span>
-              <div class="audio-progress-bar" id="audioProgressBar" onclick="seekAudio(event)">
-                <div class="audio-progress-fill" id="audioProgressFill"></div>
-              </div>
-              <span class="audio-time" id="audioTotalTime">0:00</span>
-            </div>
-          </div>
-
-          <!-- Right: Track List -->
-          <div class="audio-list-wrap">
-            <button class="audio-list-btn" onclick="toggleAudioList()">
-              <span class="audio-list-icon"></span>
-              <span class="audio-list-arrow"></span>
-            </button>
-            <div class="audio-list-dropdown" id="audioListDropdown">
-              <div class="audio-list-item active" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">电子音乐类</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item-info">
-        <div class="item-label">MP3</div>
-        <h3>电子音乐类</h3>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="section-header">
   <h2 contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">Selected <em>Works</em></h2>
@@ -905,6 +901,38 @@
         </div>
     </div>
 
+  </div>
+</div>
+
+<!-- MP3 Player -->
+<div class="group-divider">
+  <span class="group-divider-label">MP3</span>
+</div>
+
+<div class="audio-player-row">
+  <div class="audio-player-bar">
+    <button class="audio-play-btn" id="audioPlayBtn" onclick="toggleAudioPlay()">
+      <span class="audio-icon play-icon"></span>
+    </button>
+    <div class="audio-info">
+      <span class="audio-track-name" id="audioTrackName">电子音乐类</span>
+      <div class="audio-progress-wrap">
+        <span class="audio-time" id="audioCurrentTime">0:00</span>
+        <div class="audio-progress-bar" id="audioProgressBar" onclick="seekAudio(event)">
+          <div class="audio-progress-fill" id="audioProgressFill"></div>
+        </div>
+        <span class="audio-time" id="audioTotalTime">0:00</span>
+      </div>
+    </div>
+    <div class="audio-list-wrap">
+      <button class="audio-list-btn" onclick="toggleAudioList()">
+        <span class="audio-list-icon"></span>
+        <span class="audio-list-arrow"></span>
+      </button>
+      <div class="audio-list-dropdown" id="audioListDropdown">
+        <div class="audio-list-item active" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">电子音乐类</div>
+      </div>
+    </div>
   </div>
 </div>
 
