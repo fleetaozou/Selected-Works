@@ -517,7 +517,7 @@
       align-items: center;
       gap: 14px;
       padding: 12px 20px;
-      background: var(--bg);
+      background: linear-gradient(to right, var(--bg) 0%, #ccc 15%, #ccc 85%, var(--bg) 100%);
       width: 100%;
       max-width: calc((100vw - 96px) / 3 - 2px + 200px);
       border: 1px solid var(--line);
@@ -526,7 +526,7 @@
       width: 38px;
       height: 38px;
       flex-shrink: 0;
-      background: var(--ink);
+      background: var(--accent);
       border: none;
       border-radius: 50%;
       cursor: pointer;
@@ -536,7 +536,7 @@
       transition: background .2s;
     }
     .audio-player-bar .audio-play-btn:hover {
-      background: #444;
+      background: #d4b87a;
     }
     .audio-icon {
       width: 0;
