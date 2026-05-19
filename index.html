@@ -575,7 +575,6 @@
       align-items: center;
       gap: 8px;
       width: 100%;
-      max-width: 280px;
     }
     .audio-time {
       font-size: 10px;
@@ -622,6 +621,9 @@
     .audio-list-item.active {
       color: var(--accent);
       border-color: var(--accent);
+    }
+    .audio-list-item.active::before {
+      content: '▶ ';
     }
     @media (max-width: 900px) {
       .audio-player-bar {
@@ -812,8 +814,8 @@
       </div>
     </div>
     <div class="audio-list-wrap" id="audioListWrap">
-      <div class="audio-list-item active" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">电子音乐类</div>
-      <div class="audio-list-item" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">RPG Boss Battle</div>
+      <div class="audio-list-item active" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">1. 电子音乐类</div>
+      <div class="audio-list-item" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">2. RPG Boss Battle</div>
     </div>
   </div>
 </div>
