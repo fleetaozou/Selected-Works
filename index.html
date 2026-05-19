@@ -812,7 +812,7 @@
       <span class="audio-icon play-icon"></span>
     </button>
     <div class="audio-info">
-      <span class="audio-track-name" id="audioTrackName">电子音乐类</span>
+      <span class="audio-track-name" id="audioTrackName">RPG Boss Battle</span>
       <div class="audio-progress-wrap">
         <span class="audio-time" id="audioCurrentTime">0:00</span>
         <div class="audio-progress-bar" id="audioProgressBar" onclick="seekAudio(event)">
@@ -822,8 +822,8 @@
       </div>
     </div>
     <div class="audio-list-wrap" id="audioListWrap">
-      <div class="audio-list-item active" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">1. 电子音乐类</div>
-      <div class="audio-list-item" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">2. RPG Boss Battle</div>
+      <div class="audio-list-item active" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">1. RPG Boss Battle</div>
+      <div class="audio-list-item" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">2. 电子音乐类</div>
     </div>
   </div>
 </div>
@@ -860,8 +860,8 @@ function toggleMore() {
 <script>
 var currentAudio = null;
 var audioTracks = [
-  { src: 'audio/电子音乐类.mp3', name: '电子音乐类' },
-  { src: 'audio/RPG_Boss%20battle.mp3', name: 'RPG Boss Battle' }
+  { src: 'audio/RPG_Boss%20battle.mp3', name: 'RPG Boss Battle' },
+  { src: 'audio/电子音乐类.mp3', name: '电子音乐类' }
 ];
 
 function initAudioPlayer() {
