@@ -329,6 +329,26 @@
     .audio-inline-bar .audio-play-btn:hover {
       background: #f0f0f0;
     }
+    .audio-inline-bar .audio-play-btn .play-icon::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 0 9px 15px;
+      border-color: transparent transparent transparent #1a1a1a;
+      margin-left: 3px;
+    }
+    .audio-inline-bar .audio-play-btn .pause-icon::after {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 16px;
+      border-left: 3px solid #1a1a1a;
+      border-right: 3px solid #1a1a1a;
+      background: transparent;
+      margin: 0 auto;
+    }
     .audio-inline-bar .audio-info {
       width: 100%;
       display: flex;
