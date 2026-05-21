@@ -235,7 +235,7 @@
     /* ── Video grid ── */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
       background: var(--line);
       border-bottom: 1px solid var(--line);
@@ -247,7 +247,7 @@
       position: relative;
     }
 
-    .video-item:nth-child(4n) {
+    .video-item:nth-child(3n) {
       border-right: none;
     }
 
@@ -732,6 +732,75 @@
 
 <!-- All Works (single grid) -->
 <div class="video-group">
+
+  <!-- 声音类 -->
+  <div class="group-divider">
+    <span class="group-divider-line"></span>
+    <span class="group-divider-label">声音类</span>
+    <span class="group-divider-line"></span>
+  </div>
+
+  <div class="video-grid">
+
+    <div class="video-item">
+      <div class="thumb-wrap">
+        <span class="item-num" contenteditable="false" style="outline: none;">03</span>
+        <iframe
+  src="https://player.bilibili.com/player.html?bvid=BV1Nn526jEdQ&page=1&autoplay=0"
+  allowfullscreen="true"
+  loading="lazy"></iframe>
+        <div class="play-btn" onclick="startPlay(this)">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="false" style="outline: none;">Project 03</div>
+        <h3 id="v4-title" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">声音设计作品</h3>
+        </div>
+    </div>
+
+    <div class="video-item">
+      <div class="thumb-wrap">
+        <span class="item-num">05</span>
+        <video controls playsinline>
+          <source src="https://raw.githubusercontent.com/fleetaozou/Selected-Works/main/video/%E9%9F%B3%E6%95%88%E8%AE%BE%E8%AE%A1_bot%20walk.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" onclick="startPlay(this)">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+      <div class="item-info">
+        <div class="item-label">Project 05</div>
+        <h3>游戏音效设计（Bot Walk）</h3>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="thumb-wrap">
+        <span class="item-num" contenteditable="false" style="outline: none;">04</span>
+        <iframe
+  src="https://player.bilibili.com/player.html?bvid=BV1J45g6iEQs&page=1&autoplay=0"
+  allowfullscreen="true"
+  loading="lazy"></iframe>
+        <div class="play-btn" onclick="startPlay(this)">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+      <div class="item-info">
+        <div class="item-label" contenteditable="false" style="outline: none;">Project 04</div>
+        <h3 id="v5-title" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">Unity场景搭建与Wwise集成</h3>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- 音乐类 -->
+  <div class="group-divider">
+    <span class="group-divider-line"></span>
+    <span class="group-divider-label">音乐类</span>
+    <span class="group-divider-line"></span>
+  </div>
+
   <div class="video-grid">
 
     <div class="video-item">
@@ -770,57 +839,22 @@
 
     <div class="video-item">
       <div class="thumb-wrap">
-        <span class="item-num" contenteditable="false" style="outline: none;">03</span>
-        <iframe
-  src="https://player.bilibili.com/player.html?bvid=BV1Nn526jEdQ&page=1&autoplay=0"
-  allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
+        <span class="item-num">06</span>
+        <div class="mp3-thumb" onclick="toggleAudioPlay()">
+          <span class="mp3-thumb-icon"></span>
+          <span class="mp3-thumb-label">BGM</span>
         </div>
       </div>
       <div class="item-info">
-        <div class="item-label" contenteditable="false" style="outline: none;">Project 03</div>
-        <h3 id="v4-title" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">声音设计作品</h3>
-        </div>
-    </div>
-
-    <div class="video-item">
-      <div class="thumb-wrap">
-        <span class="item-num" contenteditable="false" style="outline: none;">04</span>
-        <iframe
-  src="https://player.bilibili.com/player.html?bvid=BV1J45g6iEQs&page=1&autoplay=0"
-  allowfullscreen="true"
-  loading="lazy"></iframe>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
-      </div>
-      <div class="item-info">
-        <div class="item-label" contenteditable="false" style="outline: none;">Project 04</div>
-        <h3 id="v5-title" contenteditable="false" style="outline: none; border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor;">Unity场景搭建与Wwise集成</h3>
-        </div>
-    </div>
-
-    <div class="video-item">
-      <div class="thumb-wrap">
-        <span class="item-num">05</span>
-        <video controls playsinline>
-          <source src="https://raw.githubusercontent.com/fleetaozou/Selected-Works/main/video/%E9%9F%B3%E6%95%88%E8%AE%BE%E8%AE%A1_bot%20walk.mp4" type="video/mp4">
-        </video>
-        <div class="play-btn" onclick="startPlay(this)">
-          <div class="play-icon"></div>
-        </div>
-      </div>
-      <div class="item-info">
-        <div class="item-label">Project 05</div>
-        <h3>游戏音效设计（Bot Walk）</h3>
+        <div class="item-label">Project 06</div>
+        <h3>RPG Boss Battle 等</h3>
       </div>
     </div>
 
   </div>
 </div>
 
+<!-- MP3 Player (centered, one video-width) -->
 <!-- MP3 Player (centered, one video-width) -->
 <div class="audio-player-wrapper">
   <div class="audio-player-bar">
