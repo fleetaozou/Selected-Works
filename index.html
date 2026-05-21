@@ -300,43 +300,100 @@
     }
 
     
-    /* ── MP3 card thumbnail ── */
-    .mp3-thumb {
+
+    /* ── Inline MP3 player card ── */
+    .audio-inline-bar {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      gap: 12px;
+      gap: 10px;
+      padding: 20px 16px 12px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%);
     }
-    .mp3-thumb-icon {
-      width: 48px;
-      height: 48px;
-      border: 2px solid rgba(200,169,110,0.6);
+    .audio-inline-bar .audio-play-btn {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      background: var(--accent);
+      border: none;
       border-radius: 50%;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: background .2s;
     }
-    .mp3-thumb-icon::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border-left: 16px solid rgba(200,169,110,0.8);
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      margin-left: 4px;
+    .audio-inline-bar .audio-play-btn:hover {
+      background: #d4b87a;
     }
-    .mp3-thumb-label {
+    .audio-inline-bar .audio-info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .audio-inline-bar .audio-track-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: rgba(200,169,110,0.7);
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    .audio-inline-bar .audio-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+    }
+    .audio-inline-bar .audio-time {
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+    .audio-inline-bar .audio-progress-bar {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .audio-inline-bar .audio-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      width: 0%;
+    }
+    /* Audio track list in item-info */
+    .audio-track-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .audio-track-list .audio-list-item {
+      padding: 5px 8px;
+      font-size: 11px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color .2s, border-color .2s;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+    .audio-track-list .audio-list-item:hover {
+      color: var(--ink);
+    }
+    .audio-track-list .audio-list-item.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .audio-track-list .audio-list-item.active::before {
+      content: '▶ ';
+      font-size: 9px;
     }
 .video-item p {
       font-size: 12px;
@@ -879,41 +936,32 @@
     <div class="video-item">
       <div class="thumb-wrap">
         <span class="item-num">06</span>
-        <div class="mp3-thumb" onclick="toggleAudioPlay()">
-          <span class="mp3-thumb-icon"></span>
-          <span class="mp3-thumb-label">BGM</span>
+        <div class="audio-inline-bar">
+          <button class="audio-play-btn" id="audioPlayBtn" onclick="toggleAudioPlay()">
+            <span class="audio-icon play-icon"></span>
+          </button>
+          <div class="audio-info">
+            <span class="audio-track-name" id="audioTrackName">RPG Boss Battle</span>
+            <div class="audio-progress-wrap">
+              <span class="audio-time" id="audioCurrentTime">0:00</span>
+              <div class="audio-progress-bar" id="audioProgressBar" onclick="seekAudio(event)">
+                <div class="audio-progress-fill" id="audioProgressFill"></div>
+              </div>
+              <span class="audio-time" id="audioTotalTime">0:00</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="item-info">
         <div class="item-label">Project 06</div>
         <h3>RPG Boss Battle 等</h3>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- MP3 Player (centered, one video-width) -->
-<!-- MP3 Player (centered, one video-width) -->
-<div class="audio-player-wrapper">
-  <div class="audio-player-bar">
-    <button class="audio-play-btn" id="audioPlayBtn" onclick="toggleAudioPlay()">
-      <span class="audio-icon play-icon"></span>
-    </button>
-    <div class="audio-info">
-      <span class="audio-track-name" id="audioTrackName">RPG Boss Battle</span>
-      <div class="audio-progress-wrap">
-        <span class="audio-time" id="audioCurrentTime">0:00</span>
-        <div class="audio-progress-bar" id="audioProgressBar" onclick="seekAudio(event)">
-          <div class="audio-progress-fill" id="audioProgressFill"></div>
+        <div class="audio-track-list">
+          <div class="audio-list-item active" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">1. RPG Boss Battle</div>
+          <div class="audio-list-item" data-src="audio/%E7%94%B5%E5%AD%90%E9%9F%B3%E4%B9%90%E7%B1%BB.mp3" onclick="selectAudioTrack(this)">2. 电子音乐类</div>
         </div>
-        <span class="audio-time" id="audioTotalTime">0:00</span>
       </div>
     </div>
-    <div class="audio-list-wrap" id="audioListWrap">
-      <div class="audio-list-item active" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">1. RPG Boss Battle</div>
-      <div class="audio-list-item" data-src="audio/电子音乐类.mp3" onclick="selectAudioTrack(this)">2. 电子音乐类</div>
-    </div>
+
   </div>
 </div>
 
