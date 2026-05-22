@@ -870,7 +870,7 @@
           </div>
           <div class="audio-volume-wrap" id="audioVolumeWrap">
             <span class="audio-volume-icon" id="audioVolumeIcon">🔊</span>
-            <input type="range" class="audio-volume-slider" id="audioVolumeSlider" min="0" max="100" value="65" oninput="setVolume(this.value)">
+            <input type="range" class="audio-volume-slider" id="audioVolumeSlider" min="0" max="100" value="50" oninput="setVolume(this.value)">
           </div>
         </div>
       </div>
@@ -925,7 +925,7 @@ var audioTracks = [
 
 function initAudioPlayer() {
   currentAudio = new Audio();
-  currentAudio.volume = 0.65;
+  currentAudio.volume = 0.50;
   currentAudio.src = audioTracks[0].src;
   currentAudio.addEventListener('loadedmetadata', function() {
     document.getElementById('audioTotalTime').textContent = formatTime(currentAudio.duration);
