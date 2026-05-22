@@ -868,6 +868,10 @@
               <span class="audio-time" id="audioTotalTime">0:00</span>
             </div>
           </div>
+          <div class="audio-volume-wrap" id="audioVolumeWrap">
+            <span class="audio-volume-icon" id="audioVolumeIcon">🔊</span>
+            <input type="range" class="audio-volume-slider" id="audioVolumeSlider" min="0" max="100" value="65" oninput="setVolume(this.value)">
+          </div>
         </div>
       </div>
       <div class="item-info">
