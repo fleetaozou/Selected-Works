@@ -633,7 +633,46 @@
 
     /* ── Editable ── */
     /* ── Editable ── */
-    </style>
+    
+    .audio-inline-bar .audio-volume-wrap {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .audio-inline-bar .audio-volume-icon {
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .audio-inline-bar .audio-volume-slider {
+      width: 60px;
+      height: 3px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+      cursor: pointer;
+      outline: none;
+    }
+    .audio-inline-bar .audio-volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+    }
+    .audio-inline-bar .audio-volume-slider::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+    }
+</style>
 </head>
 <body contenteditable="false">
 
@@ -882,6 +921,7 @@ var audioTracks = [
 
 function initAudioPlayer() {
   currentAudio = new Audio();
+  currentAudio.volume = 0.65;
   currentAudio.src = audioTracks[0].src;
   currentAudio.addEventListener('loadedmetadata', function() {
     document.getElementById('audioTotalTime').textContent = formatTime(currentAudio.duration);
@@ -961,6 +1001,12 @@ document.addEventListener('click', function(e) {
     list.classList.remove('open');
   }
 });
+
+function setVolume(val) {
+  if (!currentAudio) return;
+  currentAudio.volume = val / 100;
+  document.getElementById('audioVolumeIcon').textContent = val == 0 ? '🔇' : '🔊';
+}
 </script>
 </body></html>
 
