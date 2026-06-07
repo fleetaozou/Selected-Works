@@ -190,6 +190,25 @@
       padding-bottom: 1px;
     }
 
+    .education-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .education-item {
+      display: grid;
+      gap: 2px;
+    }
+
+    .education-item strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .education-item span {
+      color: var(--muted);
+    }
+
     .more-toggle {
       display: flex;
       justify-content: center;
@@ -642,7 +661,16 @@
           </div>
           <div class="resume-item">
             <div class="resume-label">背景</div>
-            <div class="resume-value">华南师范大学 音乐（作曲）硕士，主修作曲、计算机音乐、音频设计。云南艺术学院 音乐表演（技能与应用）学士。</div>
+            <div class="resume-value education-list">
+              <div class="education-item">
+                <strong>华南师范大学</strong>
+                <span>音乐（作曲）硕士，主修作曲、计算机音乐、音频设计</span>
+              </div>
+              <div class="education-item">
+                <strong>云南艺术学院</strong>
+                <span>音乐表演（技能与应用）学士</span>
+              </div>
+            </div>
           </div>
           <div class="resume-item">
             <div class="resume-label">邮箱</div>
