@@ -192,20 +192,43 @@
 
     .education-list {
       display: grid;
-      gap: 8px;
+      gap: 12px;
+      width: 100%;
     }
 
     .education-item {
       display: grid;
-      gap: 2px;
+      grid-template-columns: minmax(150px, 0.34fr) 1fr;
+      gap: 18px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .education-item:first-child {
+      border-top: none;
+      padding-top: 0;
     }
 
     .education-item strong {
       font-weight: 500;
       color: var(--ink);
+      font-size: 16px;
+      letter-spacing: .3px;
     }
 
     .education-item span {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .education-degree {
+      font-weight: 500;
+      color: var(--ink);
+      margin-right: 8px;
+    }
+
+    .education-focus {
       color: var(--muted);
     }
 
@@ -607,6 +630,14 @@
       .position { font-size: 16px; line-height: 1.7; }
       .resume-item { flex-direction: column; gap: 5px; padding: 7px 0; }
       .resume-label { width: auto; }
+      .education-list { gap: 10px; }
+      .education-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 12px 0;
+      }
+      .education-item strong { font-size: 15px; }
+      .education-degree { display: block; margin-right: 0; }
       .section-header { padding: 34px 0 22px; }
       .section-header h2 { font-size: 26px; }
       .group-divider { padding: 34px 0 18px; }
@@ -664,11 +695,11 @@
             <div class="resume-value education-list">
               <div class="education-item">
                 <strong>华南师范大学</strong>
-                <span>音乐（作曲）硕士，主修作曲、计算机音乐、音频设计</span>
+                <span><b class="education-degree">音乐（作曲）硕士</b><span class="education-focus">主修作曲、计算机音乐、音频设计</span></span>
               </div>
               <div class="education-item">
                 <strong>云南艺术学院</strong>
-                <span>音乐表演（技能与应用）学士</span>
+                <span><b class="education-degree">音乐表演（技能与应用）学士</b></span>
               </div>
             </div>
           </div>
