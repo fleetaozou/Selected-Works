@@ -109,12 +109,17 @@
       margin-bottom: 28px;
     }
 
+    .skills-panel {
+      background: var(--panel);
+      margin-bottom: 30px;
+      padding: 20px 0 0;
+    }
+
     .proof-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
       background: var(--line);
-      margin-bottom: 30px;
     }
 
     .proof-heading {
@@ -124,7 +129,7 @@
       letter-spacing: 2px;
       color: var(--accent);
       text-align: center;
-      margin: 6px 0 18px;
+      margin: 0 0 18px;
     }
 
     .proof-item {
@@ -626,7 +631,7 @@
     }
 
     @media (min-width: 981px) {
-      .proof-heading {
+      .skills-panel {
         width: calc(100vw - 96px);
         margin-left: -420px;
       }
@@ -672,19 +677,21 @@
       <div class="hero-info">
         <div class="eyebrow">Audio Design Portfolio</div>
         <h1 id="heroName">邹庆韬<br><em>Zou Qingtao</em></h1>
-        <div class="proof-heading">掌握技能</div>
-        <div class="proof-strip" aria-label="核心技能">
-          <div class="proof-item">
-            <span class="proof-number">DAW</span>
-            <span class="proof-text">Cubase、Logic Pro、Reaper；作曲、编曲、录音编辑与混音制作。</span>
-          </div>
-          <div class="proof-item">
-            <span class="proof-number">Wwise</span>
-            <span class="proof-text">Event、State、Switch、RTPC；动态交互音频逻辑搭建。</span>
-          </div>
-          <div class="proof-item">
-            <span class="proof-number">Unity</span>
-            <span class="proof-text">Unity / UE5 音频工作流；组件挂载、参数调试与场景音频联动。</span>
+        <div class="skills-panel">
+          <div class="proof-heading">掌握技能</div>
+          <div class="proof-strip" aria-label="核心技能">
+            <div class="proof-item">
+              <span class="proof-number">DAW</span>
+              <span class="proof-text">Cubase、Logic Pro、Reaper；作曲、编曲、录音编辑与混音制作。</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-number">Wwise</span>
+              <span class="proof-text">Event、State、Switch、RTPC；动态交互音频逻辑搭建。</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-number">Unity</span>
+              <span class="proof-text">Unity / UE5 音频工作流；组件挂载、参数调试与场景音频联动。</span>
+            </div>
           </div>
         </div>
 
