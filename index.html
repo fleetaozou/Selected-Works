@@ -326,9 +326,12 @@
 
     .group-divider {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 10px;
       padding: 46px 0 28px;
+      text-align: center;
     }
 
     .group-divider-label {
@@ -337,6 +340,13 @@
       font-weight: 300;
       letter-spacing: 2px;
       color: var(--accent);
+    }
+
+    .group-summary {
+      max-width: 680px;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--muted);
     }
 
     .video-grid {
@@ -437,19 +447,6 @@
       font-weight: 400;
       line-height: 1.35;
       margin-bottom: 12px;
-    }
-
-    .project-meta {
-      display: grid;
-      gap: 7px;
-      font-size: 12px;
-      line-height: 1.65;
-      color: var(--muted);
-    }
-
-    .project-meta strong {
-      color: var(--ink);
-      font-weight: 500;
     }
 
     .audio-inline-bar {
@@ -743,6 +740,7 @@
     <section class="video-group" aria-label="作品列表">
       <div class="group-divider">
         <span class="group-divider-label">声音类</span>
+        <p class="group-summary">包含声音设计、脚步音效、场景音频搭建与 Wwise 集成，展示拟音采样、动态交互逻辑和 Unity / UE5 场景联动能力。</p>
       </div>
 
       <div class="video-grid">
@@ -757,10 +755,6 @@
           <div class="item-info">
             <div class="item-label">Project 01</div>
             <h3>声音设计作品</h3>
-            <div class="project-meta">
-              <p><strong>职责：</strong>声音素材设计、层次编辑、氛围与动作反馈塑造。</p>
-              <p><strong>重点：</strong>展示拟音、采样处理与多类型声音质感控制能力。</p>
-            </div>
           </div>
         </article>
 
@@ -774,10 +768,6 @@
           <div class="item-info">
             <div class="item-label">Project 02</div>
             <h3>Bot Footsteps 音效设计 — UE5 蓝图 + Wwise</h3>
-            <div class="project-meta">
-              <p><strong>职责：</strong>脚步音效设计、Wwise 事件配置、UE5 蓝图联动调试。</p>
-              <p><strong>工具：</strong>UE5、Wwise、Reaper。通过参数触发让脚步反馈与角色运动同步。</p>
-            </div>
           </div>
         </article>
 
@@ -792,16 +782,13 @@
           <div class="item-info">
             <div class="item-label">Project 03</div>
             <h3>Unity 场景音频搭建 — Wwise 集成</h3>
-            <div class="project-meta">
-              <p><strong>职责：</strong>场景音频逻辑搭建、音频组件挂载、参数调试。</p>
-              <p><strong>重点：</strong>使用 Wwise Event、State、Switch、RTPC 实现动态交互音频。</p>
-            </div>
           </div>
         </article>
       </div>
 
       <div class="group-divider">
         <span class="group-divider-label">音乐类</span>
+        <p class="group-summary">包含 CG 动画配乐、宣传片配乐与 AI 辅助音乐创作，展示画面情绪分析、主题动机设计、编曲、混音与原型制作能力。</p>
       </div>
 
       <div class="video-grid">
@@ -816,10 +803,6 @@
           <div class="item-info">
             <div class="item-label">Project 04</div>
             <h3>二创 CG 动画配乐作品</h3>
-            <div class="project-meta">
-              <p><strong>职责：</strong>画面情绪分析、主题动机设计、编曲与混音。</p>
-              <p><strong>重点：</strong>根据镜头节奏控制音乐段落推进，强化叙事和冲突层次。</p>
-            </div>
           </div>
         </article>
 
@@ -834,10 +817,6 @@
           <div class="item-info">
             <div class="item-label">Project 05</div>
             <h3>宣传片配乐作品</h3>
-            <div class="project-meta">
-              <p><strong>职责：</strong>配乐制作、音画同步、混音交付。</p>
-              <p><strong>经历：</strong>曾担任官方宣传片音频设计师，完成现场录音到混音全流程。</p>
-            </div>
           </div>
         </article>
 
@@ -867,10 +846,6 @@
           <div class="item-info">
             <div class="item-label">Project 06</div>
             <h3>AI 辅助创作类</h3>
-            <div class="project-meta">
-              <p><strong>职责：</strong>AI 快速原型生成、人工精修、编曲与混音整理。</p>
-              <p><strong>工具：</strong>Suno、ACE Studio、Minimax 与 DAW 工作流结合。</p>
-            </div>
             <div class="audio-track-list">
               <div class="audio-list-item active" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">1. RPG Boss Battle</div>
               <div class="audio-list-item" data-src="audio/%E7%94%B5%E5%AD%90%E9%9F%B3%E4%B9%90%E7%B1%BB.mp3" onclick="selectAudioTrack(this)">2. 电子音乐类</div>
