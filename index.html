@@ -243,7 +243,7 @@
       color: var(--muted);
     }
 
-    .more-toggle {
+    .more-toggle { display: none; 
       display: flex;
       justify-content: center;
       align-items: center;
@@ -279,13 +279,13 @@
       transition: transform .3s;
     }
 
-    .more-section { display: none; }
+    .more-section { display: block; }
     .more-section.open { display: block; }
     .more-toggle.open .toggle-arrow { transform: rotate(180deg); }
 
     .more-inner {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--line);
       border-top: 1px solid var(--line);
