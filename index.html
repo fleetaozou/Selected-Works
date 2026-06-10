@@ -243,7 +243,7 @@
       color: var(--muted);
     }
 
-    .more-toggle { display: none; 
+    .more-toggle { 
       display: flex;
       justify-content: center;
       align-items: center;
@@ -279,7 +279,7 @@
       transition: transform .3s;
     }
 
-    .more-section { display: block; }
+    .more-section { display: none; }
     .more-section.open { display: block; }
     .more-toggle.open .toggle-arrow { transform: rotate(180deg); }
 
@@ -335,11 +335,6 @@
       color: var(--soft);
     }
 
-    .video-group {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
     .group-divider {
       display: flex;
       flex-direction: column;
@@ -377,7 +372,6 @@
       background: var(--bg);
       overflow: hidden;
       position: relative;
-      padding: 6px;
     }
 
     .thumb-wrap {
@@ -758,6 +752,7 @@
     </section>
 
     <section class="video-group" aria-label="作品列表">
+
       <div class="group-divider">
         <span class="group-divider-label">声音类</span>
         <p class="group-summary">包含声音设计、脚步音效、场景音频搭建与 Wwise 集成，展示拟音采样、动态交互逻辑和 Unity / UE5 场景联动能力。</p>
@@ -811,7 +806,15 @@
             <div class="item-label">Project 03</div>
             <h3>Unity 场景音频搭建 — Wwise 集成</h3>
           </div>
-        </article><article class="video-item">
+        </article>
+      </div>
+      <div class="group-divider">
+        <span class="group-divider-label">音乐类</span>
+        <p class="group-summary">包含 CG 动画配乐、宣传片配乐与 AI 辅助音乐创作，展示画面情绪分析、主题动机设计、编曲、混音等能力。</p>
+      </div>
+
+      <div class="video-grid">
+        <article class="video-item">
           <div class="thumb-wrap">
             <span class="item-num">04</span>
             <iframe src="https://player.bilibili.com/player.html?bvid=BV1SCvre7EaX&page=1&autoplay=0" title="二创 CG 动画配乐作品" allowfullscreen loading="lazy"></iframe>
