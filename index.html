@@ -460,6 +460,13 @@
       margin-bottom: 12px;
     }
 
+    .item-desc {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
     .audio-inline-bar {
       position: absolute;
       inset: 0;
@@ -770,75 +777,104 @@
           <div class="item-info">
             <div class="item-label">Project 01</div>
             <h3>FPS声音设计作品</h3>
+            <p class="item-desc">射击战斗音效｜枪械、换弹、脚步、命中反馈、环境层次｜展示动作音效拆解与战斗声音节奏控制</p>
           </div>
         </article><article class="video-item">
           <div class="thumb-wrap">
-            <span class="item-num">07</span>
+            <span class="item-num">02</span>
             <iframe src="https://player.bilibili.com/player.html?bvid=BV13ZER6oEep&page=1&autoplay=0" title="仙侠战斗场景音效设计" allowfullscreen loading="lazy"></iframe>
             <div class="play-btn" onclick="startPlay(this)" aria-label="播放仙侠战斗场景音效设计">
               <div class="play-icon"></div>
             </div>
           </div>
           <div class="item-info">
-            <div class="item-label">Project 07</div>
+            <div class="item-label">Project 02</div>
             <h3>仙侠战斗场景音效设计</h3>
+            <p class="item-desc">古风动作音效｜长枪攻击、技能 UI、敌人反馈、物件破坏、平原环境｜展示动作拆解、打击反馈与场景氛围塑造</p>
           </div>
         </article><article class="video-item">
           <div class="thumb-wrap">
-            <span class="item-num">02</span>
+            <span class="item-num">03</span>
             <video controls playsinline title="Bot Footsteps 音效设计演示">
               <source src="https://raw.githubusercontent.com/fleetaozou/Selected-Works/main/video/Bot%20Footsteps.mp4" type="video/mp4">
             </video>
           </div>
           <div class="item-info">
-            <div class="item-label">Project 02</div>
+            <div class="item-label">Project 03</div>
             <h3>Bot Footsteps 音效设计 — UE5 蓝图 + Wwise</h3>
+            <p class="item-desc">脚步交互系统｜UE5 蓝图、Wwise Switch、脚步随机化、材质切换｜展示游戏脚步系统搭建能力</p>
           </div>
         </article><article class="video-item">
           <div class="thumb-wrap">
-            <span class="item-num">03</span>
+            <span class="item-num">04</span>
             <iframe src="https://player.bilibili.com/player.html?bvid=BV1J45g6iEQs&page=1&autoplay=0" title="Unity 场景音频搭建 Wwise 集成演示" allowfullscreen loading="lazy"></iframe>
             <div class="play-btn" onclick="startPlay(this)" aria-label="播放 Unity 场景音频搭建作品">
               <div class="play-icon"></div>
             </div>
           </div>
           <div class="item-info">
-            <div class="item-label">Project 03</div>
+            <div class="item-label">Project 04</div>
             <h3>Unity 场景音频搭建 — Wwise 集成</h3>
+            <p class="item-desc">交互音频实现｜Unity + Wwise Event、State、RTPC、场景触发｜展示引擎内音频逻辑与参数联动能力</p>
           </div>
-        </article>
-      </div>
-      <div class="group-divider">
-        <span class="group-divider-label">音乐类</span>
-        <p class="group-summary">包含 CG 动画配乐、宣传片配乐与 AI 辅助音乐创作，展示画面情绪分析、主题动机设计、编曲、混音等能力。</p>
-      </div>
-
-      <div class="video-grid">
-        <article class="video-item">
+        </article><article class="video-item">
           <div class="thumb-wrap">
-            <span class="item-num">04</span>
+            <span class="item-num">05</span>
             <iframe src="https://player.bilibili.com/player.html?bvid=BV1SCvre7EaX&page=1&autoplay=0" title="二创 CG 动画配乐作品" allowfullscreen loading="lazy"></iframe>
             <div class="play-btn" onclick="startPlay(this)" aria-label="播放二创 CG 动画配乐作品">
               <div class="play-icon"></div>
             </div>
           </div>
           <div class="item-info">
-            <div class="item-label">Project 04</div>
+            <div class="item-label">Project 05</div>
             <h3>二创 CG 动画配乐作品</h3>
+            <p class="item-desc">动画配乐｜画面情绪分析、主题动机、段落推进、混音平衡｜展示根据镜头节奏进行音乐设计的能力</p>
           </div>
         </article><article class="video-item">
           <div class="thumb-wrap">
-            <span class="item-num">05</span>
+            <span class="item-num">06</span>
             <iframe src="https://player.bilibili.com/player.html?bvid=BV1k45263EvE&page=1&autoplay=0" title="宣传片配乐作品" allowfullscreen loading="lazy"></iframe>
             <div class="play-btn" onclick="startPlay(this)" aria-label="播放宣传片配乐作品">
               <div class="play-icon"></div>
             </div>
           </div>
           <div class="item-info">
-            <div class="item-label">Project 05</div>
+            <div class="item-label">Project 06</div>
             <h3>宣传片配乐作品</h3>
+            <p class="item-desc">宣传片配乐｜画面节奏、情绪铺垫、段落推进、氛围塑造｜展示配乐对画面叙事和节奏的支撑能力</p>
           </div>
         </article><article class="video-item">
+          <div class="thumb-wrap">
+            <span class="item-num">07</span>
+            <div class="audio-inline-bar">
+              <button class="audio-play-btn" id="audioPlayBtn" type="button" onclick="toggleAudioPlay()" aria-label="播放音频">
+                <span class="audio-icon play-icon"></span>
+              </button>
+              <div class="audio-info">
+                <span class="audio-track-name" id="audioTrackName">RPG Boss Battle</span>
+                <div class="audio-progress-wrap">
+                  <span class="audio-time" id="audioCurrentTime">0:00</span>
+                  <div class="audio-progress-bar" id="audioProgressBar" onclick="seekAudio(event)">
+                    <div class="audio-progress-fill" id="audioProgressFill"></div>
+                  </div>
+                  <span class="audio-time" id="audioTotalTime">0:00</span>
+                </div>
+              </div>
+              <div class="audio-volume-wrap" id="audioVolumeWrap">
+                <span class="audio-volume-icon" id="audioVolumeIcon">Vol</span>
+                <input type="range" class="audio-volume-slider" id="audioVolumeSlider" min="0" max="100" value="50" oninput="setVolume(this.value)" aria-label="音量">
+              </div>
+            </div>
+          </div>
+          <div class="item-info">
+            <div class="item-label">Project 07</div>
+            <h3>AI 辅助创作类</h3>
+            <div class="audio-track-list">
+              <div class="audio-list-item active" data-src="audio/RPG_Boss%20battle.mp3" onclick="selectAudioTrack(this)">1. RPG Boss Battle</div>
+              <div class="audio-list-item" data-src="audio/%E7%94%B5%E5%AD%90%E9%9F%B3%E4%B9%90%E7%B1%BB.mp3" onclick="selectAudioTrack(this)">2. 电子音乐类</div>
+            </div>
+          </div>
+        </article>
           <div class="thumb-wrap">
             <span class="item-num">06</span>
             <div class="audio-inline-bar">
